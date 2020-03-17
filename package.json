@@ -1,0 +1,44 @@
+{
+  "name": "tinyduration",
+  "version": "1.0.0",
+  "description": "ISO-8601 duration parsing and serialization",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "MelleB <npm@melleboersma.nl>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MelleB/tinyduration.git"
+  },
+  "homepage": "https://github.com/MelleB/tinyduration#readme",
+  "bugs": {
+    "url": "https://github.com/MelleB/tinyduration/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "prepublish": "tsc",
+    "lint": "eslint . --ext .ts",
+    "prettify": "eslint . --ext .ts --fix",
+    "ci": "jest --coverage && eslint . --ext .ts"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "rootDir": "src"
+  }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1584478700260" clover="3.2.0">
+  <project timestamp="1584478700260" name="All files">
+    <metrics statements="18" coveredstatements="18" conditionals="49" coveredconditionals="49" methods="4" coveredmethods="4" elements="71" coveredelements="71" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
+    <file name="index.ts" path="/home/melle/Projects/playground/plan/tinyduration/src/index.ts">
+      <metrics statements="18" coveredstatements="18" conditionals="49" coveredconditionals="49" methods="4" coveredmethods="4"/>
+      <line num="13" count="7" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="30" count="91" type="cond" truecount="5" falsecount="0"/>
+      <line num="31" count="65" type="stmt"/>
+      <line num="34" count="26" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="40" count="16" type="stmt"/>
+      <line num="41" count="16" type="cond" truecount="4" falsecount="0"/>
+      <line num="42" count="1" type="stmt"/>
+      <line num="45" count="15" type="stmt"/>
+      <line num="46" count="15" type="cond" truecount="9" falsecount="0"/>
+      <line num="47" count="2" type="stmt"/>
+      <line num="50" count="13" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="63" count="26" type="cond" truecount="2" falsecount="0"/>
+      <line num="72" count="14" type="stmt"/>
+      <line num="75" count="12" type="stmt"/>
+    </file>
+  </project>
+</coverage>
