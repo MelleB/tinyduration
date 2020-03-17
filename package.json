@@ -1,10 +1,11 @@
 {
   "name": "tinyduration",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ISO-8601 duration parsing and serialization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "MelleB <npm@melleboersma.nl>",
+  "keywords": ["iso-8601", "duration", "period", "date", "time"],
   "repository": {
     "type": "git",
     "url": "https://github.com/MelleB/tinyduration.git"

@@ -6,6 +6,8 @@ This package does only 2 things:
     - (e.g. `P1DT12H` to `{ days: 1, hours: 12 }`)
  2. The reverse, i.e. serialize an object to a string.
 
+ ![Node.js CI](https://github.com/MelleB/tinyduration/workflows/Node.js%20CI/badge.svg)
+
 ## Installation
 - NPM: `npm install --save tinyduration`
 - Yarn: `yarn add tinyduration`
