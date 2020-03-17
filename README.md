@@ -48,14 +48,14 @@ Additional commands you'll need for development:
 ## *Type:* Duration
 |Property|Type|Description|
 |-|-|-|
-|negative|`boolean|undefined`|Duration is positive if undefined
-|years|`number|undefined`||
-|months|`number|undefined`||
-|weeks|`number|undefined`||
-|days|`number|undefined`||
-|hours|`number|undefined`||
-|minutes|`number|undefined`||
-|seconds|`number|undefined`||
+|negative|`boolean` or `undefined`|Duration is positive if undefined
+|years|`number` or `undefined`||
+|months|`number` or `undefined`||
+|weeks|`number` or `undefined`||
+|days|`number` or `undefined`||
+|hours|`number` or `undefined`||
+|minutes|`number` or `undefined`||
+|seconds|`number` or `undefined`||
 
 
 ## *Function:* parse(string): Duration
