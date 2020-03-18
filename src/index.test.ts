@@ -25,10 +25,14 @@ describe('valid test cases', () => {
             expect(parse(input)).toEqual(parsed)
             expect(serialize(parsed)).toEqual(serialized || input)
         })
+    })
 
-        test('serialize empty object', () => {
-            expect(serialize({})).toEqual('PT0S')
-        })
+    test('serialize empty object', () => {
+        expect(serialize({})).toEqual('PT0S')
+    })
+
+    test('serialize 0 units', () => {
+        expect(serialize({ years: 12, days: 0 })).toEqual('P12Y')
     })
 })
 

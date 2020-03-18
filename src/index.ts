@@ -59,6 +59,7 @@ export function parse(durationStr: string): Duration {
     }
 }
 
+const s = (n: number | undefined, s: string): string | undefined => (n ? n + s : undefined)
 export function serialize(duration: Duration): string {
     if (
         !duration.years &&
@@ -75,13 +76,13 @@ export function serialize(duration: Duration): string {
     return [
         duration.negative && '-',
         'P',
-        duration.years && duration.years + 'Y',
-        duration.months && duration.months + 'M',
-        duration.weeks && duration.weeks + 'W',
-        duration.days && duration.days + 'D',
+        s(duration.years, 'Y'),
+        s(duration.months, 'M'),
+        s(duration.weeks, 'W'),
+        s(duration.days, 'D'),
         (duration.hours || duration.minutes || duration.seconds) && 'T',
-        duration.hours && duration.hours + 'H',
-        duration.minutes && duration.minutes + 'M',
-        duration.seconds && duration.seconds + 'S',
+        s(duration.hours, 'H'),
+        s(duration.minutes, 'M'),
+        s(duration.seconds, 'S'),
     ].join('')
 }
