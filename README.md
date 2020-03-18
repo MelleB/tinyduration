@@ -14,7 +14,7 @@ This package does only 2 things:
 
 ## Usage
 ```js
-import { parse, toString } from 'tinyduration';
+import { parse, serialize } from 'tinyduration';
 
 // Basic parsing
 const durationObj = parse('P1Y2M3DT4H5M6S');
@@ -28,7 +28,7 @@ assert(durationObj, {
 });
 
 // Serialization
-assert(toString(durationObj), 'P1Y2M3DT4H5M6S');
+assert(serialize(durationObj), 'P1Y2M3DT4H5M6S');
 ```
 
 ## Development
@@ -78,18 +78,18 @@ try {
 }
 ```
 
-## *Function:* toString(Duration): string
-`toString` accepts a Duration object and returns a serialized duration according to ISO-8601.
+## *Function:* serialize(Duration): string
+`serialize` accepts a Duration object and returns a serialized duration according to ISO-8601.
 
 If the duration is empty (i.e. all values are 0), `PT0S` is returned.
 
 ```js
 import * as Duration from 'tinyduraion';
 
-const durationStr = Duration.toString({ weeks: 1 });
+const durationStr = Duration.serialize({ weeks: 1 });
 assert(durationStr, 'P1W')
 
-const durationStr = Duration.toString({});
+const durationStr = Duration.serialize({});
 assert(durationStr, 'PT0S')
 ```
 

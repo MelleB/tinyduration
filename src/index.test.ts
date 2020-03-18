@@ -1,4 +1,4 @@
-import { parse, toString, InvalidDurationError } from '.'
+import { parse, serialize, InvalidDurationError } from '.'
 
 describe('valid test cases', () => {
     const testCasesValid = [
@@ -23,11 +23,11 @@ describe('valid test cases', () => {
     testCasesValid.forEach(({ input, parsed, serialized }) => {
         test(`parse & serialize valid - ${input}`, () => {
             expect(parse(input)).toEqual(parsed)
-            expect(toString(parsed)).toEqual(serialized || input)
+            expect(serialize(parsed)).toEqual(serialized || input)
         })
 
         test('serialize empty object', () => {
-            expect(toString({})).toEqual('PT0S')
+            expect(serialize({})).toEqual('PT0S')
         })
     })
 })

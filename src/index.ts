@@ -59,7 +59,7 @@ export function parse(durationStr: string): Duration {
     }
 }
 
-export function toString(duration: Duration): string {
+export function serialize(duration: Duration): string {
     if (
         !duration.years &&
         !duration.months &&
