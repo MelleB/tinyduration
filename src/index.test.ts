@@ -26,14 +26,6 @@ describe('valid test cases', () => {
             expect(serialize(parsed)).toEqual(serialized || input)
         })
     })
-
-    test('serialize empty object', () => {
-        expect(serialize({})).toEqual('PT0S')
-    })
-
-    test('serialize 0 units', () => {
-        expect(serialize({ years: 12, days: 0 })).toEqual('P12Y')
-    })
 })
 
 describe('invalid test cases', () => {
@@ -43,5 +35,21 @@ describe('invalid test cases', () => {
         test(`parse invalid - ${input}`, () => {
             expect(() => parse(input)).toThrow(InvalidDurationError)
         })
+    })
+})
+
+describe('parsing tests', () => {
+    test('do not set undefined units', () => {
+        expect(Object.keys(parse('PT0S'))).toEqual(['seconds'])
+    })
+})
+
+describe('serialzation tests', () => {
+    test('serialize empty object', () => {
+        expect(serialize({})).toEqual('PT0S')
+    })
+
+    test('serialize 0 units', () => {
+        expect(serialize({ years: 12, days: 0 })).toEqual('P12Y')
     })
 })

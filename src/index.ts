@@ -1,5 +1,4 @@
-export interface Duration {
-    negative?: boolean
+interface DurationValues {
     years?: number
     months?: number
     weeks?: number
@@ -9,19 +8,33 @@ export interface Duration {
     seconds?: number
 }
 
+export type Duration = {
+    negative?: boolean
+} & DurationValues
+
+const units: Array<{ unit: keyof DurationValues; symbol: string }> = [
+    { unit: 'years', symbol: 'Y' },
+    { unit: 'months', symbol: 'M' },
+    { unit: 'weeks', symbol: 'W' },
+    { unit: 'days', symbol: 'D' },
+    { unit: 'hours', symbol: 'H' },
+    { unit: 'minutes', symbol: 'M' },
+    { unit: 'seconds', symbol: 'S' },
+]
+
 // Construction of the duration regex
 const r = (name: string, unit: string): string => `((?<${name}>-?\\d*[\\.,]?\\d+)${unit})?`
 const durationRegex = new RegExp(
     [
-        '(?<negativeStr>-)?P',
-        r('yearStr', 'Y'),
-        r('monthStr', 'M'),
-        r('weekStr', 'W'),
-        r('dayStr', 'D'),
+        '(?<negative>-)?P',
+        r('years', 'Y'),
+        r('months', 'M'),
+        r('weeks', 'W'),
+        r('days', 'D'),
         '(T',
-        r('hourStr', 'H'),
-        r('minuteStr', 'M'),
-        r('secondStr', 'S'),
+        r('hours', 'H'),
+        r('minutes', 'M'),
+        r('seconds', 'S'),
         ')?', // end optional time
     ].join(''),
 )
@@ -42,21 +55,25 @@ export function parse(durationStr: string): Duration {
         throw InvalidDurationError
     }
 
-    const { negativeStr, yearStr, monthStr, weekStr, hourStr, dayStr, minuteStr, secondStr } = match.groups
-    if (!yearStr && !monthStr && !weekStr && !hourStr && !dayStr && !minuteStr && !secondStr) {
+    let empty = true
+    const values: DurationValues = {}
+    for (const { unit } of units) {
+        if (match.groups[unit]) {
+            empty = false
+            values[unit] = parseNum(match.groups[unit])
+        }
+    }
+
+    if (empty) {
         throw InvalidDurationError
     }
 
-    return {
-        negative: negativeStr === '-' || undefined,
-        years: parseNum(yearStr),
-        months: parseNum(monthStr),
-        weeks: parseNum(weekStr),
-        days: parseNum(dayStr),
-        hours: parseNum(hourStr),
-        minutes: parseNum(minuteStr),
-        seconds: parseNum(secondStr),
+    const duration: Duration = values
+    if (match.groups.negative) {
+        duration.negative = true
     }
+
+    return duration
 }
 
 const s = (n: number | undefined, s: string): string | undefined => (n ? n + s : undefined)
