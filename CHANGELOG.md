@@ -1,6 +1,9 @@
 
 # CHANGELOG
 
+## 3.1.0
+- Fix type generation, closes #1 (Thanks @paddlefish)
+
 ## 3.0.0
 - **BREAKING:** Removed undefined props from output
 
