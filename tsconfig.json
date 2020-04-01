@@ -1,6 +1,6 @@
 {
-  "declaration": true,
   "compilerOptions": {
+    "declaration": true,
     "incremental": true,
     "target": "es6",
     "module": "commonjs",
