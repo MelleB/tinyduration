@@ -76,7 +76,21 @@ export function parse(durationStr: string): Duration {
     return duration
 }
 
-const s = (n: number | undefined, s: string): string | undefined => (n ? n + s : undefined)
+const s = (number: number | undefined, component: string): string | undefined => {
+    if (!number) {
+        return undefined
+    }
+
+    let numberAsString = number.toString()
+    const exponentIndex = numberAsString.indexOf('e')
+    if (exponentIndex > -1) {
+        const magnitude = parseInt(numberAsString.slice(exponentIndex + 2), 10)
+        numberAsString = number.toFixed(magnitude + exponentIndex - 2)
+    }
+
+    return numberAsString + component
+}
+
 export function serialize(duration: Duration): string {
     if (
         !duration.years &&
