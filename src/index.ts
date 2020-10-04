@@ -101,5 +101,7 @@ export function serialize(duration: Duration): string {
         s(duration.hours, 'H'),
         s(duration.minutes, 'M'),
         s(duration.seconds, 'S'),
-    ].join('')
+    ]
+        .filter(Boolean)
+        .join('')
 }
