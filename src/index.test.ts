@@ -1,4 +1,6 @@
-import { parse, serialize, InvalidDurationError } from '.'
+import * as fc from 'fast-check'
+
+import { Duration, InvalidDurationError, parse, serialize } from '.'
 
 describe('valid test cases', () => {
     const testCasesValid = [
@@ -25,6 +27,32 @@ describe('valid test cases', () => {
             expect(parse(input)).toEqual(parsed)
             expect(serialize(parsed)).toEqual(serialized || input)
         })
+    })
+
+    test('vice versa', () => {
+        const durationPartArb = fc.option(
+            fc.float().filter(value => value >= 0),
+            { nil: undefined },
+        )
+
+        const durationArb: fc.Arbitrary<Duration> = fc.record({
+            negative: fc.option(fc.boolean(), { nil: undefined }),
+            years: durationPartArb,
+            months: durationPartArb,
+            weeks: durationPartArb,
+            days: durationPartArb,
+            hours: durationPartArb,
+            minutes: durationPartArb,
+            seconds: durationPartArb,
+        })
+
+        fc.assert(
+            fc.property(durationArb, duration => {
+                const iso8601 = serialize(duration)
+
+                expect(serialize(parse(iso8601))).toEqual(iso8601)
+            }),
+        )
     })
 })
 
