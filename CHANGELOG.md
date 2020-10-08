@@ -1,6 +1,10 @@
 
 # CHANGELOG
 
+## 3.2.0
+- Introduce property based tests (Thanks @Djaler)
+- Bump versions of dev dependencies
+
 ## 3.1.0
 - Fix type generation, closes #1 (Thanks @paddlefish)
 
