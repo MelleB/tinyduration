@@ -5,7 +5,13 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "MelleB <npm@melleboersma.nl>",
-  "keywords": ["iso-8601", "duration", "period", "date", "time"],
+  "keywords": [
+    "iso-8601",
+    "duration",
+    "period",
+    "date",
+    "time"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/MelleB/tinyduration.git"
@@ -42,6 +48,9 @@
     "preset": "ts-jest",
     "testEnvironment": "node",
     "coverageDirectory": "coverage",
-    "testPathIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"]
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ]
   }
 }
