@@ -8,6 +8,8 @@ This package does only 2 things:
 
  ![Node.js CI](https://github.com/MelleB/tinyduration/workflows/Node.js%20CI/badge.svg)
 
+This lib has 0 dependencies.
+
 ## Installation
 - NPM: `npm install --save tinyduration`
 - Yarn: `yarn add tinyduration`

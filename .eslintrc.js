@@ -6,7 +6,7 @@ module.exports = {
     sourceType: "module",
     ecmaFeatures: {
       modules: true
-    }
+    },
   },
   plugins: [
     '@typescript-eslint',
@@ -16,15 +16,15 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
     'plugin:jest/recommended',
+    'prettier',
   ],
   rules: {
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error"
+    "jest/valid-expect": "error",
   }
 };

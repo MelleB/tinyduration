@@ -31,7 +31,7 @@ describe('valid test cases', () => {
 
     test('vice versa', () => {
         const durationPartArb = fc.option(
-            fc.float().filter(value => value >= 0),
+            fc.float().filter((value) => value >= 0),
             { nil: undefined },
         )
 
@@ -47,7 +47,7 @@ describe('valid test cases', () => {
         })
 
         fc.assert(
-            fc.property(durationArb, duration => {
+            fc.property(durationArb, (duration) => {
                 const iso8601 = serialize(duration)
 
                 expect(serialize(parse(iso8601))).toEqual(iso8601)
@@ -59,7 +59,7 @@ describe('valid test cases', () => {
 describe('invalid test cases', () => {
     const testCasesInvalid = ['P', 'PT', 'asdf']
 
-    testCasesInvalid.forEach(input => {
+    testCasesInvalid.forEach((input) => {
         test(`parse invalid - ${input}`, () => {
             expect(() => parse(input)).toThrow(InvalidDurationError)
         })
