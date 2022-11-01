@@ -86,7 +86,7 @@ try {
 If the duration is empty (i.e. all values are 0), `PT0S` is returned.
 
 ```js
-import * as Duration from 'tinyduraion';
+import * as Duration from 'tinyduration';
 
 const durationStr = Duration.serialize({ weeks: 1 });
 assert(durationStr, 'P1W')
