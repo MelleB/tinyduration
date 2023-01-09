@@ -1,6 +1,18 @@
 
 # CHANGELOG
 
+## 3.2.4
+- Bump dev dependencies
+
+## 3.2.3
+- Bump dev dependencies
+
+## 3.2.2
+- Bump dev dependencies
+
+## 3.2.1
+- Bump dev dependencies
+
 ## 3.2.0
 - Introduce property based tests (Thanks @Djaler)
 - Bump versions of dev dependencies
