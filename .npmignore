@@ -1,0 +1,7 @@
+.eslintignore
+.eslintrc.js
+.github
+.prettierrc.js
+src
+tsconfig.json
+tsconfig.tsbuildinfo
