@@ -5,3 +5,5 @@
 src
 tsconfig.json
 tsconfig.tsbuildinfo
+coverage
+shell.nix
