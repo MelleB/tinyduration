@@ -1,6 +1,6 @@
 {
   "name": "tinyduration",
-  "version": "3.2.5",
+  "version": "3.2.6",
   "description": "ISO-8601 duration parsing and serialization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
