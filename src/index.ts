@@ -12,6 +12,14 @@ export type Duration = {
     negative?: boolean
 } & DurationValues
 
+export type ParseConfig = {
+    allowMultipleFractions?: boolean
+}
+
+const DEFAULT_PARSE_CONFIG: ParseConfig = {
+    allowMultipleFractions: true,
+}
+
 const units: Array<{ unit: keyof DurationValues; symbol: string }> = [
     { unit: 'years', symbol: 'Y' },
     { unit: 'months', symbol: 'M' },
@@ -48,19 +56,28 @@ function parseNum(s: string): number | undefined {
 }
 
 export const InvalidDurationError = new Error('Invalid duration')
+export const MultipleFractionsError = new Error('Multiple fractions specified')
 
-export function parse(durationStr: string): Duration {
+export function parse(durationStr: string, config: ParseConfig = DEFAULT_PARSE_CONFIG): Duration {
     const match = durationRegex.exec(durationStr)
     if (!match || !match.groups) {
         throw InvalidDurationError
     }
 
     let empty = true
+    let decimalFractionCount = 0
     const values: DurationValues = {}
     for (const { unit } of units) {
         if (match.groups[unit]) {
             empty = false
             values[unit] = parseNum(match.groups[unit])
+
+            if (!config.allowMultipleFractions && !Number.isInteger(values[unit])) {
+                decimalFractionCount++
+                if (decimalFractionCount > 1) {
+                    throw MultipleFractionsError
+                }
+            }
         }
     }
 

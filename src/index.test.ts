@@ -1,6 +1,6 @@
 import * as fc from 'fast-check'
 
-import { Duration, InvalidDurationError, parse, serialize } from '.'
+import { Duration, InvalidDurationError, MultipleFractionsError, parse, serialize } from '.'
 
 describe('valid test cases', () => {
     const testCasesValid = [
@@ -69,6 +69,11 @@ describe('invalid test cases', () => {
 describe('parsing tests', () => {
     test('do not set undefined units', () => {
         expect(Object.keys(parse('PT0S'))).toEqual(['seconds'])
+    })
+
+    test('strict mode should not accept multiple fractions', () => {
+        expect(parse('P0.5YT0.5M', { allowMultipleFractions: true })).toBeTruthy()
+        expect(() => parse('P0.5YT0.5M', { allowMultipleFractions: false })).toThrow(MultipleFractionsError)
     })
 })
 

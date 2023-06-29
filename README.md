@@ -65,7 +65,13 @@ Additional commands you'll need for development:
 | minutes  | `number` or `undefined`  |                                   |
 | seconds  | `number` or `undefined`  |                                   |
 
-## _Function:_ parse(string): Duration
+## _Type:_ ParseConfig
+
+| Property               | Type                     | Description         |
+| ---------------------- | ------------------------ | ------------------- |
+| allowMultipleFractions | `boolean` or `undefined` | Defaults to `true`. |
+
+## _Function:_ parse(durationStr: string, config: ParseConfig): Duration
 
 `parse` accepts a string and returns a `Duration` object.
 
@@ -73,8 +79,11 @@ No attempt is made to change lower units into higher ones, e.g. to change 120 mi
 
 **Throws** `InvalidDurationError` if an invalid duration string is supplied.
 
+**Throws** `MultipleFractionsError` if an the duration string contains multiple fractions while disabled in the config.
+According to the spec multiple fractions are not allowed. Currently this is not enforced and the `allowMultipleFractions` config parameter defaults to `true`.
+
 ```js
-import { parse } from 'tinyduraion'
+import { parse } from 'tinyduration'
 
 const duration = parse('P1W')
 assert(duration, { weeks: 1 })
