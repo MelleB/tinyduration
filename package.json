@@ -1,6 +1,6 @@
 {
   "name": "tinyduration",
-  "version": "3.2.6",
+  "version": "3.3.0",
   "description": "ISO-8601 duration parsing and serialization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -33,13 +33,14 @@
     "fast-check": "2.25.0",
     "jest": "^29.2.2",
     "prettier": "^2.7.1",
+    "rimraf": "^5.0.1",
     "ts-jest": "^29.0.3",
     "typescript": "^4.8.4"
   },
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "prepublish": "jest && yarn lint && tsc",
+    "prepublish": "jest && yarn lint && rimraf dist && tsc",
     "lint": "eslint . --ext .ts",
     "prettify": "eslint . --ext .ts --fix",
     "ci": "jest --coverage && eslint . --ext .ts"

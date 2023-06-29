@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.3.0
+
+-   Introduce a config for `parse` to toggle allowing of multiple fractions per the spec. (See [#19](https://github.com/MelleB/tinyduration/issues/19) for more background)
+
 ## 3.2.5 + 3.2.6
 
 -   Remove unneeded files from npm export
