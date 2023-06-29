@@ -53,5 +53,8 @@
       "<rootDir>/dist/",
       "<rootDir>/node_modules/"
     ]
+  },
+  "resolutions": {
+    "semver": "7.5.3"
   }
 }
