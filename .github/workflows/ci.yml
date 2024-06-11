@@ -16,7 +16,9 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        # Test against all LTS versions.
+        # NodeJS version support: https://nodejs.org/en/about/previous-releases
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
     - uses: actions/checkout@v2
