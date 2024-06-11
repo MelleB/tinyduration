@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.3.1
+
+-   Bump dev dependencies
+
 ## 3.3.0
 
 -   Introduce a config for `parse` to toggle allowing of multiple fractions per the spec. (See [#19](https://github.com/MelleB/tinyduration/issues/19) for more background)
