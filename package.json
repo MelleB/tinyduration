@@ -1,6 +1,6 @@
 {
   "name": "tinyduration",
-  "version": "3.3.1",
+  "version": "3.4.0",
   "description": "ISO-8601 duration parsing and serialization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,6 +22,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.27.11",
     "@types/jest": "29.5.14",
     "@types/node": "20.14.2",
     "@typescript-eslint/eslint-plugin": "7.13.0",

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.4.0
+
+### Minor Changes
+
+-   Bump deps, adopt @changeset/cli and switch to npm
+
 ## 3.3.1
 
 -   Bump dev dependencies
