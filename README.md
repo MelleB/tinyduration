@@ -45,10 +45,10 @@ The tests can be found the `src` folder under `*.test.ts`, testing is done using
 
 Additional commands you'll need for development:
 
--   `yarn test` to run all tests
--   `yarn lint` to run the linter
--   `yarn prettify` to auto-fix the indenting issues
--   `yarn ci` to run coverage and linting
+-   `npm test` to run all tests
+-   `npm run lint` to run the linter
+-   `npm run prettify` to auto-fix the indenting issues
+-   `npm run ci` to run coverage and linting
 
 # API
 
