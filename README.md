@@ -49,6 +49,10 @@ Additional commands you'll need for development:
 -   `npm run lint` to run the linter
 -   `npm run prettify` to auto-fix the indenting issues
 -   `npm run ci` to run coverage and linting
+-   `npx changeset` to add a changeset
+-   `npx changeset version` to adopt a changeset, prepping for release
+-   `npx changeset publish` to publish to NPM
+
 
 # API
 
