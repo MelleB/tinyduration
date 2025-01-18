@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.4.1
+
+### Patch Changes
+
+-   Do not publish .changeset/ and CHANGELOG.md to NPM
+
 ## 3.4.0
 
 ### Minor Changes
