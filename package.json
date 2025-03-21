@@ -47,7 +47,7 @@
   "scripts": {
     "test": "vitest",
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "prepublish": "vitest run && npm run lint && rimraf dist && tsc",
+    "prepublish": "vitest run && npm run lint && rimraf dist && npm run build",
     "lint": "eslint . --ext .ts",
     "prettify": "eslint . --ext .ts --fix",
     "ci": "vitest run --coverage && eslint . --ext .ts"
