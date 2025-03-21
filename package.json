@@ -4,6 +4,13 @@
   "description": "ISO-8601 duration parsing and serialization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "author": "MelleB <npm@melleboersma.nl>",
   "keywords": [
     "iso-8601",
@@ -23,37 +30,27 @@
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "2.28.1",
-    "@types/jest": "29.5.14",
     "@types/node": "22.13.10",
     "@typescript-eslint/eslint-plugin": "8.27.0",
     "@typescript-eslint/parser": "8.27.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "10.1.1",
-    "eslint-plugin-jest": "28.11.0",
     "eslint-plugin-prettier": "5.2.3",
     "fast-check": "2.25.0",
-    "jest": "29.7.0",
+    "vitest": "3.0.9",
+    "@vitest/coverage-v8": "3.0.9",
     "prettier": "3.5.3",
     "rimraf": "6.0.1",
-    "ts-jest": "29.2.6",
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "tsup": "8.4.0"
   },
   "scripts": {
-    "test": "jest",
-    "build": "tsc",
-    "prepublish": "jest && npm run lint && rimraf dist && tsc",
+    "test": "vitest",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "prepublish": "vitest run && npm run lint && rimraf dist && npm run build",
     "lint": "eslint . --ext .ts",
     "prettify": "eslint . --ext .ts --fix",
-    "ci": "jest --coverage && eslint . --ext .ts"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "coverageDirectory": "coverage",
-    "testPathIgnorePatterns": [
-      "<rootDir>/dist/",
-      "<rootDir>/node_modules/"
-    ]
+    "ci": "vitest run --coverage && eslint . --ext .ts"
   },
   "resolutions": {
     "semver": "7.7.1"

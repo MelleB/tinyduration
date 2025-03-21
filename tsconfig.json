@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "incremental": true,
-    "target": "es6",
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "strict": true,
     "outDir": "dist",
     "sourceMap": false,
@@ -19,15 +19,16 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "vitest/globals"
+    ]
   },
   "exclude": [
     "dist",
     "node_modules",
-    "src/**/*.test.ts"
   ],
   "include": [
     "src/**/*.ts"
   ]
 }
-
