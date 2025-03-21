@@ -1,6 +1,6 @@
 import * as fc from 'fast-check'
 
-import { Duration, InvalidDurationError, MultipleFractionsError, parse, serialize } from '.'
+import { Duration, InvalidDurationError, MultipleFractionsError, parse, serialize } from './index.js'
 
 describe('valid test cases', () => {
     const testCasesValid = [
